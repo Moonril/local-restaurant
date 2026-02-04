@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import WeekMenu from "./WeekMenu"
 
@@ -25,7 +26,7 @@ const HomePage = function () {
 
     return (
         <section className="min-h-screen flex flex-col ">
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* big container */}
             <div className="min-h-screen flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
@@ -45,6 +46,15 @@ const HomePage = function () {
                 </div>
                 {/*  */}
 
+            </div>
+
+            <div className="flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
+                <h3>Find us on social media!</h3>
+                <div className="flex gap-5">
+                    <Link to={'/login'} className=" underline text-white hover:text-red-600">Insta</Link>
+                    <Link to={'/login'} className=" underline text-white hover:text-red-600">Face</Link>
+                    <Link to={'/login'} className=" underline text-white hover:text-red-600">Twitter</Link>
+                </div>
             </div>
 
             
