@@ -10,9 +10,10 @@ function App() {
   const location = useLocation()
 
 
+  
   return (
     <>
-    { location != 'http://localhost:5173/' &&
+    { location.pathname != '/' &&
       (
         <Navbar  />
 

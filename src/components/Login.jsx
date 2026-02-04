@@ -1,5 +1,7 @@
-import {  useState } from "react"
+import {  useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../auth/AuthContext";
+import axios from "axios";
 
 
 const Login = function () {
@@ -13,7 +15,33 @@ const Login = function () {
         password: ''
     })
     
+    const {login} = useContext(AuthContext)
 
+    const logIn = ()=>{
+        axios
+        .post(APIUrl, inputValues)
+        .then((response) => {
+            setInputValues({
+                username: '',
+                password: ''
+            })
+            //console.log("Login completed", response.data)
+            //const token = response.data
+            //localStorage.setItem("token", token)
+            login(response.data) 
+            navigate("/")
+            
+        })
+        .catch((err) => {
+            console.log("Errore nel login: ", err)
+            Swal.fire({
+                title: 'Errore nella richiesta',
+                text: 'Qualcosa è andato storto durante login.',
+                icon: 'error',
+                confirmButtonText: 'Riprova',
+            })
+        })
+    }
 
 
     return (
