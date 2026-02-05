@@ -4,6 +4,7 @@ import NotFound from './components/NotFound'
 import LandingPage from './components/LandingPage'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
+import BookingPage from './components/BookingPage'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         {/* <Route path='/recipe/:id' element={<RecipePage />}  /> */}
         <Route path='*' element={<NotFound />}  />
         <Route path='/login' element={<Login />}  />
+        <Route path='/reservar' element={<BookingPage />}  />
       </Routes>
     </>
   )
