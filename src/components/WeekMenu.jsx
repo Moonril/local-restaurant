@@ -54,7 +54,7 @@ const WeekMenu = function () {
                     <h5 className="font-semibold mb-2 text-2xl">{day.title}</h5>
                     <img src={day.image} alt={day.title} className="w-sm h-48 object-cover" />
                     <p className="text-lg p-5">{day.description}</p>
-                    <Link to={`/reservar/${day.id}`} className="w-full text-white  hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-teal-600 hover:bg-primary-700 focus:ring-primary-800 hover:bg-teal-500">Reserva</Link>
+                    <Link to={`/reservar`} className="w-full text-white  hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-teal-600 hover:bg-primary-700 focus:ring-primary-800 hover:bg-teal-500">Reserva</Link> {/* ${day.id} to the link */}
                 </div>
 
             ))}
