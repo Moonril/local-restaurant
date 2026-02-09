@@ -1,9 +1,7 @@
 ## To do
 
-- backend completo
-- frontend: pagina gestione prenotazioni
-- randomize recipes selection
-- clickable cards
+- randomize dish selection
+- add dishes to backend
 - add instagram/social network buttons
 - make a backoffice
 - gestione calendario backoffice, per aperture e chiusure, scelta piatti
