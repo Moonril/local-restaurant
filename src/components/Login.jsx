@@ -29,7 +29,7 @@ const Login = function () {
             //const token = response.data
             //localStorage.setItem("token", token)
             login(response.data) 
-            navigate("/")
+            navigate("/home")
             
         })
         .catch((err) => {

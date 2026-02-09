@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import BookingPage from './components/BookingPage'
+import Backoffice from './components/Backoffice'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
     }
       <Routes>
         <Route path='/' element={<LandingPage />}  />
+        <Route path='/backoffice' element={<Backoffice />}  />
         <Route path='/home' element={<HomePage />}  />
         {/* <Route path='/recipe/:id' element={<RecipePage />}  /> */}
         <Route path='*' element={<NotFound />}  />
