@@ -1,4 +1,42 @@
+import axios from "axios"
+import { useState } from "react"
+import Swal from "sweetalert2"
+
 const BookingPage = function () {
+
+    const APIUrlNewBooking = 'http://localhost:8080/bookings'
+    const [inputValues, setInputValues] = useState({})
+
+
+    /* POST new booking */
+
+    const postNewBooking = () => {
+
+        axios
+        .post(APIUrlNewBooking,inputValues)
+        .then((response) => {
+           console.log("Booking saved: ", response.data)
+            Swal.fire({
+                title: 'Reserva realizada!',
+                icon: 'success',
+                confirmButtonText: 'OK',
+            })
+            
+        })
+        .catch((err) => {
+            console.log("Error during saving: ", err)
+            Swal.fire({
+                title: 'Error',
+                text: 'Controlla che la ricetta non esista già.',
+                icon: 'error',
+                confirmButtonText: 'Riprova',
+            })
+            
+        })
+    }
+
+
+
     return (
         <section className="min-h-screen flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
 
@@ -15,6 +53,7 @@ const BookingPage = function () {
 
             <form className="w-full max-w-lg" onSubmit={(e)=>{
                 e.preventDefault()
+                postNewBooking()
                 
             }}>
 
@@ -26,7 +65,26 @@ const BookingPage = function () {
                         <label className="block uppercase tracking-wide  text-xs font-bold mb-2" htmlFor="grid-name">
                             Nombre
                         </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-name" type="text" placeholder="Giulia" required />
+                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-name" type="text" placeholder="Giulia" required value={inputValues.name} onChange={(e)=>{
+                            setInputValues({
+                                ...inputValues,
+                                name: e.target.value,
+                            })
+                        }} />
+
+                    </div>
+
+                    {/* email */}
+                    <div className="w-full px-3 mb-6 md:mb-0">
+                        <label className="block uppercase tracking-wide  text-xs font-bold mb-2" htmlFor="grid-email">
+                            Email
+                        </label>
+                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-email" type="email" placeholder="giulia@giulia.com" required value={inputValues.email} onChange={(e)=>{
+                            setInputValues({
+                                ...inputValues,
+                                email: e.target.value,
+                            })
+                        }} />
 
                     </div>
                 </div>
@@ -36,7 +94,12 @@ const BookingPage = function () {
                         <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="grid-notes">
                             Alergias
                         </label>
-                        <textarea name="" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-notes" placeholder="cachuetes.." ></textarea>
+                        <textarea name="" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-notes" placeholder="cachuetes.." value={inputValues.preference} onChange={(e)=>{
+                            setInputValues({
+                                ...inputValues,
+                                preference: e.target.value,
+                            })
+                        }} ></textarea>
                     </div>
                 </div>
 
@@ -52,7 +115,12 @@ const BookingPage = function () {
                             <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="grid-people">
                                 personas
                             </label>
-                            <input name="" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-people" placeholder="1" type="number" min={1} max={4} required />
+                            <input name="" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-people" placeholder="1" type="number" min={1} max={4} required value={inputValues.numberOfCustomers} onChange={(e)=>{
+                            setInputValues({
+                                ...inputValues,
+                                numberOfCustomers: e.target.value,
+                            })
+                        }} />
                         </div>
                     </div>
 
@@ -60,7 +128,12 @@ const BookingPage = function () {
                         <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="grid-date">
                             Dìa
                         </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-date" type="datetime-local" placeholder="risotto.jpg" required  />
+                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-date" type="datetime-local" placeholder="risotto.jpg" required value={inputValues.checkInDate} onChange={(e)=>{
+                            setInputValues({
+                                ...inputValues,
+                                checkInDate: e.target.value,
+                            })
+                        }}  />
                     </div>
                     
                 </div>
