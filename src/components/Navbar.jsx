@@ -27,7 +27,13 @@ const Navbar = function () {
 
     return(
         <section className="h-8 md:h-10 px-5 md:px-20 bg-pink-900 flex items-center justify-between">
-            <Link to={'/'} className="text-white text-xl font-serif">RESTAURANTE</Link>
+            {
+                isAuthenticated ? (
+                    <Link to={'/home'} className="text-white text-xl font-serif">RESTAURANTE</Link>               
+                ) : (
+                    <Link to={'/'} className="text-white text-xl font-serif">RESTAURANTE</Link>                    
+                )
+            }
             {
                 isAuthenticated ? (
                     <div className="flex gap-1">
