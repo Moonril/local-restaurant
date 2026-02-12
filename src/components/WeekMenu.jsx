@@ -1,6 +1,14 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 const WeekMenu = function () {
+
+    const APIUrlGetMenu = 'http://localhost:8080/dishes'
+
+    const [weeklyMenu, setWeeklyMenu] = useState([])
+
+    const token = localStorage.getItem("token")
 
     const startDate = new Date()
     const weekDay = startDate.getDay()
@@ -36,13 +44,46 @@ const WeekMenu = function () {
         },
     ]
     
-    const days = Array.from({ length: 4 }, (_, i) => {
+    /* const days = Array.from({ length: 4 }, (_, i) => {
         const day = new Date(monday)
         day.setDate(monday.getDate() + i + 1)
         const dame = day.toLocaleDateString("es-ES", { weekday: "long" })
         const number = day.getDate()
         return { dame, number, ...meals[i] }
+    }) */
+
+    const getWeeklyMenu = () => {
+        axios
+        .get(APIUrlGetMenu, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
+        })
+        .then((response) => {
+            console.log(response.data.content, 'weekly menu')
+            
+            setWeeklyMenu(response.data.content)
+        })
+        .catch((error) => {
+            console.log("errore nel recupero menu", error)
+            setIsLoading(false)
+            setIsError(true)
+            
+        })
+    }
+
+    const days = Array.from({ length: 4 }, (_, i) => {
+        const day = new Date(monday)
+        day.setDate(monday.getDate() + i + 1)
+        const dame = day.toLocaleDateString("es-ES", { weekday: "long" })
+        const number = day.getDate()
+        return { dame, number, ...weeklyMenu[i] }
     })
+
+    useEffect(()=>{
+                getWeeklyMenu()
+            }, [])
 
     return (
         <div className="flex flex-col md:flex-row flex-wrap gap-5 items-center justify-center">
@@ -58,6 +99,7 @@ const WeekMenu = function () {
                 </div>
 
             ))}
+            
 
         </div>
     )
