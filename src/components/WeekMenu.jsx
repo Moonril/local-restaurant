@@ -44,15 +44,15 @@ const WeekMenu = function () {
         },
     ]
     
-    /* const days = Array.from({ length: 4 }, (_, i) => {
+    const days = Array.from({ length: 4 }, (_, i) => {
         const day = new Date(monday)
         day.setDate(monday.getDate() + i + 1)
         const dame = day.toLocaleDateString("es-ES", { weekday: "long" })
         const number = day.getDate()
         return { dame, number, ...meals[i] }
-    }) */
+    })
 
-    const getWeeklyMenu = () => {
+    /* const getWeeklyMenu = () => {
         axios
         .get(APIUrlGetMenu, {
             headers: {
@@ -79,11 +79,11 @@ const WeekMenu = function () {
         const dame = day.toLocaleDateString("es-ES", { weekday: "long" })
         const number = day.getDate()
         return { dame, number, ...weeklyMenu[i] }
-    })
+    }) */
 
-    useEffect(()=>{
+    /* useEffect(()=>{
                 getWeeklyMenu()
-            }, [])
+            }, []) */
 
     return (
         <div className="flex flex-col md:flex-row flex-wrap gap-5 items-center justify-center">
