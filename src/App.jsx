@@ -5,7 +5,7 @@ import LandingPage from './components/LandingPage'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import BookingPage from './components/BookingPage'
-import Backoffice from './components/Backoffice'
+import Backoffice from './components/backoffice/Backoffice'
 
 function App() {
 
