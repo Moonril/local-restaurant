@@ -6,10 +6,31 @@ const RestaurantSettings = function () {
     
 
     const APIUrlGetSettings = 'http://localhost:8080/restaurant-settings'
-    
-    const [restaurantSettings, setRestaurantSettings] = useState({})
-
     const token = localStorage.getItem("token")
+    
+    /* stati */
+    const [restaurantSettings, setRestaurantSettings] = useState({})
+    // modal
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [selectedField, setSelectedField] = useState(null)
+    const [inputValue, setInputValue] = useState("")
+
+    const fieldConfig = {
+        maxCapacity: {
+            label: "Restaurant capacity",
+            type: "number"
+        },
+        maxPartySize: {
+            label: "Max party size",
+            type: "number"
+        },
+        slotDurationMinutes: {
+            label: "Slot duration (minutes)",
+            type: "number"
+        }
+    };
+
+    /* getSettings */
 
     const getRestaurantSettings = () => {
         axios
@@ -32,6 +53,17 @@ const RestaurantSettings = function () {
         })
     }
 
+    /* Update Settings */
+
+    const updateRestaurantSettings = () => {
+        axios
+        .patch(APIUrlGetSettings)
+        .then()
+        .catch()
+    }
+
+
+
     useEffect(()=>{
         getRestaurantSettings()
     }, [])
@@ -52,7 +84,11 @@ const RestaurantSettings = function () {
     return (
         <section className="p-5 flex flex-col md:flex-wrap items-center gap-5">
             <div className="flex flex-row gap-5">
-                <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center">
+                <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center"  onClick={() => {
+                        setSelectedField("maxCapacity");
+                        setInputValue(restaurantSettings.maxCapacity);
+                        setIsModalOpen(true);
+                    }}>
                     <p className="">Horario de apertura: </p>
                     <p className="text-2xl">{restaurantSettings.openingTime}</p>
                 </div>
