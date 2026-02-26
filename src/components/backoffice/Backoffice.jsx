@@ -15,9 +15,9 @@ const Backoffice = function () {
             
 
 
-            {/* tabs - diff component*/}
+            {/* tabs */}
 
-            {/* tabs content - diff component */}
+
             
             <Tabs />
             

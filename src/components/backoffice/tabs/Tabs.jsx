@@ -1,8 +1,10 @@
 import { useState } from "react"
+import BookingTab from "./BookingTab"
+import DishTab from "./DishTab"
 
 const Tabs = function () {
 
-    const [activeTab, setActiveTab] = useState("elenco")
+    const [activeTab, setActiveTab] = useState("bookings")
 
     const tabs = [
         { id: "bookings", label: "Reservas" },
@@ -11,22 +13,37 @@ const Tabs = function () {
 
 
     return (
-        <section className="bg-red-600 w-full text-center">
-            <div>
-                <h3>tabs</h3>
-                <div className="">
-                    {activeTab === "bookings" && (
-                        <div>reservas</div>
-                    )}
-                    {activeTab === "dishes" && (
-                        <div>platos</div>
-                    )}
-                </div> 
-                <div>
-                    bookings - platos
-                </div>
-            </div>
-            <div>tab content</div>
+        <section className=" w-full text-center">
+            
+            {/* tabs */}
+            <ul className="flex justify-center text-lg font-medium">
+                    {tabs.map((tab) => (
+                    <li key={tab.id} className="">
+                        <button
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`inline-block py-4 px-2 md:p-4 cursor-pointer ${
+                            activeTab === tab.id
+                            ? "underline underline-offset-8 decoration-[#31572C] decoration-3"
+                            : "hover:text-gray-600 hover:bg-gray-5"
+                        }`}
+                        >
+                        {tab.label}
+                        </button>
+                    </li>
+                    ))}
+            </ul>
+
+            {/* tabs content */}
+            <div className="">
+                {activeTab === "bookings" && (
+                    <BookingTab />
+                )}
+                {activeTab === "dishes" && (
+                    <DishTab />
+                )}
+            </div> 
+
+            
         </section>
     )
 }
