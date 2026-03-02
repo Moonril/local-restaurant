@@ -67,7 +67,7 @@ const RestaurantSettings = function () {
             }
         })
         .then((response) => {
-            console.log(response.data.content[0], 'settings')
+            //console.log(response.data.content[0], 'settings')
             
             setRestaurantSettings(response.data.content[0])
         })
