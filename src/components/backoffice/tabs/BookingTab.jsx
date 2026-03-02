@@ -62,7 +62,9 @@ const BookingTab = function () {
                         {
                             bookings.map((booking) => (
                                 <tr key={booking.id}>
-                                    <button className=" cursor-pointer">&#x1F441;</button>
+                                    <button className=" cursor-pointer" onClick={() => {
+                                        setIsModalOpen(true)
+                                    }}>&#x1F441;</button>
                                     <td className="ps-2">{booking.id}</td>
                                     <td className="ps-2">{booking.bookingCreationDate}</td>
                                     <td className="ps-2">{booking.name}</td>
@@ -77,6 +79,39 @@ const BookingTab = function () {
                     </tbody>
                 </table>
             </div>
+
+            {/* modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div className="bg-white text-black p-6 rounded-lg w-96">
+                    
+                    <h2 className="text-xl font-bold mb-4">
+                        Edit 
+                    </h2>
+
+                    
+
+                    <div className="flex justify-end gap-3">
+                        <button
+                        onClick={() => setIsModalOpen(false)}
+                        className="px-4 py-2 bg-gray-300 rounded"
+                        >
+                        Cancel
+                        </button>
+
+                        <button
+                        
+                        className="px-4 py-2 bg-pink-700 text-white rounded"
+                        
+                        >
+                        Save
+                        </button>
+                    </div>
+
+                    </div>
+                </div>
+            )}
+
         </section>
     )
 }
