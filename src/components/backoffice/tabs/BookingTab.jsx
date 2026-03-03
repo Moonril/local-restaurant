@@ -64,7 +64,7 @@ const BookingTab = function () {
                                 <tr key={booking.id}>
                                     <button className=" cursor-pointer" onClick={() => {
                                         setIsModalOpen(true)
-                                    }}>&#x1F441;</button>
+                                    }}>&#x1F441;</button> {/* fix error, button cannot be child of tr */}
                                     <td className="ps-2">{booking.id}</td>
                                     <td className="ps-2">{booking.bookingCreationDate}</td>
                                     <td className="ps-2">{booking.name}</td>
