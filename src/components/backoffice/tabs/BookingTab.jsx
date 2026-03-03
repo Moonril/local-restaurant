@@ -48,6 +48,7 @@ const BookingTab = function () {
                 <table className="min-w-[800px] table-auto">
                     <thead>
                         <tr>
+                            <th className="px-3"></th>
                             <th className="px-3">ID</th>
                             <th className="px-3">Creado</th>
                             <th className="px-3">nombre</th>
@@ -89,9 +90,33 @@ const BookingTab = function () {
                         Edit 
                     </h2>
 
+                    <form action="" className="flex flex-col gap-4 my-4">
+                        <div>
+                            <label className="block text-sm font-medium">Nombre</label>
+                            <input type="text" name="checkInDate"  className="w-full border p-2 rounded" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Personas</label>
+                            <input type="number" name="checkInDate"  className="w-full border p-2 rounded" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Dìa</label>
+                            <input type="date" name="checkInDate"  className="w-full border p-2 rounded" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Email</label>
+                            <input type="email" name="checkInDate"  className="w-full border p-2 rounded" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Preferencia</label>
+                            <input type="textarea" name="checkInDate"  className="w-full border p-2 rounded" />
+                        </div>
+                        
+                    </form>
+
                     
 
-                    <div className="flex justify-end gap-3">
+                    <div className="flex justify-end gap-3 m-2">
                         <button
                         onClick={() => setIsModalOpen(false)}
                         className="px-4 py-2 bg-gray-300 rounded"
