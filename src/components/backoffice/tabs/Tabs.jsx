@@ -34,7 +34,7 @@ const Tabs = function () {
             </ul>
 
             {/* tabs content */}
-            <div className="">
+            <div className="border border-black border-t-pink-900 border-4">
                 {activeTab === "bookings" && (
                     <BookingTab />
                 )}

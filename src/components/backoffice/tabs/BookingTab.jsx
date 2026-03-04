@@ -42,8 +42,8 @@ const BookingTab = function () {
         }, [])
 
     return (
-        <section className="">
-            <h3>Reservas</h3>
+        <section className=" min-h-screen py-6">
+            <h3 className="text-2xl mb-10 font-bold">Reservas</h3>
             <div className="flex justify-center ">
                 <table className="min-w-[800px] table-auto">
                     <thead>
