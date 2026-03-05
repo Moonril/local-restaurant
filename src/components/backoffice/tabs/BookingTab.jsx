@@ -45,35 +45,35 @@ const BookingTab = function () {
         <section className=" min-h-screen py-6">
             <h3 className="text-2xl mb-10 font-bold">Reservas</h3>
             <div className="flex justify-center ">
-                <table className="min-w-[800px] table-auto">
-                    <thead>
+                <table className="min-w-[800px] table-auto bg-zinc-900">
+                    <thead className="bg-zinc-950">
                         <tr>
-                            <th className="px-3"></th>
-                            <th className="px-3">ID</th>
-                            <th className="px-3">Creado</th>
-                            <th className="px-3">nombre</th>
-                            <th className="px-3">Cantidad de personas</th>
-                            <th className="px-3">Dìa reservado</th>
-                            <th className="px-3">email</th>
-                            <th className="px-3">Preferencias</th>
-                            <th className="px-3">estado</th>
+                            <th className="px-3 py-2"></th>
+                            <th className="px-3 py-2">ID</th>
+                            <th className="px-3 py-2">Creado</th>
+                            <th className="px-3 py-2">nombre</th>
+                            <th className="px-3 py-2">Cantidad de personas</th>
+                            <th className="px-3 py-2">Dìa reservado</th>
+                            <th className="px-3 py-2">email</th>
+                            <th className="px-3 py-2">Preferencias</th>
+                            <th className="px-3 py-2">estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             bookings.map((booking) => (
                                 <tr key={booking.id}>
-                                    <button className=" cursor-pointer" onClick={() => {
+                                    <button className=" cursor-pointer px-3 py-2" onClick={() => {
                                         setIsModalOpen(true)
                                     }}>&#x1F441;</button> {/* fix error, button cannot be child of tr */}
-                                    <td className="ps-2">{booking.id}</td>
-                                    <td className="ps-2">{booking.bookingCreationDate}</td>
-                                    <td className="ps-2">{booking.name}</td>
-                                    <td className="ps-2">{booking.numberOfCustomers}</td>
-                                    <td className="ps-2">{booking.checkInDate}</td>
-                                    <td className="ps-2">{booking.email}</td>
-                                    <td className="ps-2">{booking.preference}</td>
-                                    <td className="ps-2">{booking.bookingStatus}</td>                                    
+                                    <td className="px-3 py-2">{booking.id}</td>
+                                    <td className="px-3 py-2">{booking.bookingCreationDate}</td>
+                                    <td className="px-3 py-2">{booking.name}</td>
+                                    <td className="px-3 py-2">{booking.numberOfCustomers}</td>
+                                    <td className="px-3 py-2">{booking.checkInDate}</td>
+                                    <td className="px-3 py-2">{booking.email}</td>
+                                    <td className="px-3 py-2">{booking.preference}</td>
+                                    <td className="px-3 py-2">{booking.bookingStatus}</td>                                    
                                 </tr>
                             ))
                         }

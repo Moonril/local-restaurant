@@ -40,7 +40,7 @@ const DishTab = function () {
         }, [])
 
     return (
-        <section className="">
+        <section className="p-10">
             <div className="flex flex-col md:flex-row flex-wrap gap-5 items-center justify-center">
 
             {dishes.map((dish) => (
