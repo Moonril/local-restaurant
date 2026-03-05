@@ -63,9 +63,12 @@ const BookingTab = function () {
                         {
                             bookings.map((booking) => (
                                 <tr key={booking.id}>
-                                    <button className=" cursor-pointer px-3 py-2" onClick={() => {
-                                        setIsModalOpen(true)
-                                    }}>&#x1F441;</button> {/* fix error, button cannot be child of tr */}
+                                    <td>
+                                        <button className=" cursor-pointer px-3 py-2" onClick={() => {
+                                            setIsModalOpen(true)
+                                        }}>&#x1F441;</button> 
+
+                                    </td>
                                     <td className="px-3 py-2">{booking.id}</td>
                                     <td className="px-3 py-2">{booking.bookingCreationDate}</td>
                                     <td className="px-3 py-2">{booking.name}</td>
