@@ -67,7 +67,7 @@ const RestaurantSettings = function () {
             }
         })
         .then((response) => {
-            //console.log(response.data.content[0], 'settings')
+            console.log(response.data.content[0], 'settings')
             
             setRestaurantSettings(response.data.content[0])
         })
@@ -90,6 +90,18 @@ const RestaurantSettings = function () {
         } else {
             setSelectedDays(prev => [...prev, value])
         }
+    }
+
+    /* format days spanish */
+
+    const daysMap = {
+        MONDAY: "Lunes",
+        TUESDAY: "Martes",
+        WEDNESDAY: "Miércoles",
+        THURSDAY: "Jueves",
+        FRIDAY: "Viernes",
+        SATURDAY: "Sábado",
+        SUNDAY: "Domingo"
     }
 
     /* Update Settings */
@@ -147,7 +159,9 @@ const RestaurantSettings = function () {
 
     return (
         <section className="p-5 flex flex-col md:flex-wrap items-center gap-5">
+
             <div className="flex flex-row gap-5">
+
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center"  onClick={() => {
                         setSelectedField("openingTime")
                         setInputValue(restaurantSettings.openingTime)
@@ -156,6 +170,7 @@ const RestaurantSettings = function () {
                     <p className="">Horario de apertura: </p>
                     <p className="text-2xl">{restaurantSettings.openingTime}</p>
                 </div>
+
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
                         setSelectedField("closingTime")
                         setInputValue(restaurantSettings.closingTime)
@@ -164,13 +179,14 @@ const RestaurantSettings = function () {
                     <p>Hora de cierre:</p>
                     <p className="text-2xl">{restaurantSettings.closingTime}</p>
                 </div>
+
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
                         setSelectedField("closedDays")
                         setInputValue(restaurantSettings.closedDays)
                         setIsModalOpen(true)
                     }}>
                     <p>Dìas cerrados:</p>
-                    <p className="text-2xl">{restaurantSettings.closedDays}</p>
+                    <p className="text-2xl">{restaurantSettings.closedDays?.map(day => daysMap[day]).join(", ")}</p>
                 </div>
             </div>
 

@@ -15,7 +15,8 @@ const BookingTab = function () {
         numberOfCustomers: "",
         checkInDate: "",
         email: "",
-        preference: ""
+        preference: "",
+        bookingStatus: ""
     })
     const [selectedBooking, setSelectedBooking] = useState({})
 
@@ -93,7 +94,8 @@ const BookingTab = function () {
                 numberOfCustomers: selectedBooking.numberOfCustomers || "",
                 checkInDate: selectedBooking.checkInDate || "",
                 email: selectedBooking.email || "",
-                preference: selectedBooking.preference || ""
+                preference: selectedBooking.preference || "",
+                bookingStatus: selectedBooking.bookingStatus || ""
                 })
             }
 
@@ -172,6 +174,15 @@ const BookingTab = function () {
                         <div>
                             <label className="block text-sm font-medium">Preferencia</label>
                             <input type="textarea" name="preference"  className="w-full border p-2 rounded" value={formData.preference} onChange={((e) => setFormData({ ...formData, preference:e.target.value}))} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Status</label>
+                            <select name="booking-status" id="booking-status" value={formData.bookingStatus} onChange={((e) => setFormData({ ...formData, bookingStatus:e.target.value}))}>
+                                <option value="PENDING" >Pending</option>
+                                <option value="CONFIRMED">Confirmed</option>
+                                <option value="CANCELLED">Cancelled</option>
+                                <option value="COMPLETED">Completed</option>
+                            </select>
                         </div>
                         
                     </form>
