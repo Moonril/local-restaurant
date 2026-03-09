@@ -19,6 +19,18 @@ const BookingTab = function () {
     })
     const [selectedBooking, setSelectedBooking] = useState({})
 
+    /* format date */
+    function formatDate(date) {
+        return new Date(date).toLocaleString("es-ES", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        })
+    }
+
+
     /* get bookings */
     const getBookings = () => {
         axios
@@ -29,7 +41,7 @@ const BookingTab = function () {
             }
         })
         .then((response) => {
-            //onsole.log(response.data.content, 'bookings')
+            //console.log(response.data.content, 'bookings')
             
             setBookings(response.data.content)
         })
@@ -117,10 +129,10 @@ const BookingTab = function () {
 
                                     </td>
                                     <td className="px-3 py-2">{booking.id}</td>
-                                    <td className="px-3 py-2">{booking.bookingCreationDate}</td>
+                                    <td className="px-3 py-2">{formatDate(booking.bookingCreationDate)}</td>
                                     <td className="px-3 py-2">{booking.name}</td>
                                     <td className="px-3 py-2">{booking.numberOfCustomers}</td>
-                                    <td className="px-3 py-2">{booking.checkInDate}</td>
+                                    <td className="px-3 py-2">{formatDate(booking.checkInDate)}</td>
                                     <td className="px-3 py-2">{booking.email}</td>
                                     <td className="px-3 py-2">{booking.preference}</td>
                                     <td className="px-3 py-2">{booking.bookingStatus}</td>                                    
@@ -151,7 +163,7 @@ const BookingTab = function () {
                         </div>
                         <div>
                             <label className="block text-sm font-medium">Dìa</label>
-                            <input type="date" name="checkInDate"  className="w-full border p-2 rounded" value={formData.checkInDate} onChange={((e) => setFormData({ ...formData, checkInDate:e.target.value}))} />
+                            <input type="datetime-local" name="checkInDate"  className="w-full border p-2 rounded" value={formData.checkInDate} onChange={((e) => setFormData({ ...formData, checkInDate:e.target.value}))} />
                         </div>
                         <div>
                             <label className="block text-sm font-medium">Email</label>
