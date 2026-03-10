@@ -19,39 +19,39 @@ const RestaurantSettings = function () {
 
     const fieldConfig = {
         openingTime: {
-            label: "Opening Time",
+            label: "horario de apertura",
             type: "time"
         },
         closingTime: {
-            label: "Closing Time",
+            label: "hora de cierre",
             type: "time"
         },
         closedDays: {
-            label: "Days Closed",
+            label: "dìas cerrados",
             type: "multiselect"
         },
         maxCapacity: {
-            label: "Restaurant capacity",
+            label: "capacidad del restaurante",
             type: "number"
         },
         maxPartySize: {
-            label: "Max party size",
+            label: "tamaño máximo del grupo",
             type: "number"
         },
         slotDurationMinutes: {
-            label: "Slot duration (minutes)",
+            label: "duración slot (minutos)",
             type: "number"
         },
         reservationAdvanceDays: {
-            label: "Reservation advance (days)",
+            label: "anticipación reserva (días)",
             type: "number"
         },
         minAdvanceMinutes: {
-            label: "Reservation advance (minutes)",
+            label: "anticipación reserva (minutos)",
             type: "number"
         },
         cancellationLimitHours: {
-            label: "Cancellation limit (hours)",
+            label: "límite de cancelación (horas)",
             type: "number"
         },
     }
@@ -196,7 +196,7 @@ const RestaurantSettings = function () {
                         setInputValue(restaurantSettings.maxCapacity)
                         setIsModalOpen(true)
                     }}>
-                    <p>Restaurant capacity: </p>
+                    <p>Capacidad del restaurante: </p>
                     <p className="text-2xl">{restaurantSettings.maxCapacity}</p>                
                 </div>
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
@@ -204,7 +204,7 @@ const RestaurantSettings = function () {
                         setInputValue(restaurantSettings.maxPartySize)
                         setIsModalOpen(true)
                     }}>
-                    <p>Max party size:</p>
+                    <p>Tamaño máximo del grupo:</p>
                     <p className="text-2xl">{restaurantSettings.maxPartySize}</p>
                 </div>
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
@@ -212,7 +212,7 @@ const RestaurantSettings = function () {
                         setInputValue(restaurantSettings.slotDurationMinutes)
                         setIsModalOpen(true)
                     }}>
-                    <p>slotDurationMinutes:</p>
+                    <p>Duración slot (minutos):</p>
                     <p className="text-2xl">{restaurantSettings.slotDurationMinutes}</p>
                 </div>
 
@@ -224,7 +224,7 @@ const RestaurantSettings = function () {
                         setInputValue(restaurantSettings.reservationAdvanceDays)
                         setIsModalOpen(true)
                     }}>
-                    <p>reservationAdvanceDays:</p>
+                    <p>Anticipación reserva (días):</p>
                     <p className="text-2xl">{restaurantSettings.reservationAdvanceDays}</p>
                 </div>
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
@@ -232,7 +232,7 @@ const RestaurantSettings = function () {
                         setInputValue(restaurantSettings.minAdvanceMinutes)
                         setIsModalOpen(true)
                     }}>
-                    <p>minAdvanceMinutes:</p>
+                    <p>Anticipación reserva (minutos):</p>
                     <p className="text-2xl">{restaurantSettings.minAdvanceMinutes}</p>
                 </div>
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
@@ -240,7 +240,7 @@ const RestaurantSettings = function () {
                         setInputValue(restaurantSettings.cancellationLimitHours)
                         setIsModalOpen(true)
                     }}>
-                    <p>cancellationLimitHours:</p>
+                    <p>Límite de cancelación (horas):</p>
                     <p className="text-2xl">{restaurantSettings.cancellationLimitHours}</p>
                 </div>
 
@@ -253,7 +253,7 @@ const RestaurantSettings = function () {
                     <div className="bg-white text-black p-6 rounded-lg w-96">
                     
                     <h2 className="text-xl font-bold mb-4">
-                        Edit {fieldConfig[selectedField].label}
+                        Modifica {fieldConfig[selectedField].label}
                     </h2>
 
                     {fieldConfig[selectedField].type === "multiselect" ? (
