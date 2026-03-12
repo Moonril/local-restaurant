@@ -158,9 +158,9 @@ const RestaurantSettings = function () {
     }, [])
 
     return (
-        <section className="p-5 flex flex-col md:flex-wrap items-center gap-5">
+        <section className="p-2 md:p-5 flex flex-col md:flex-wrap items-center gap-5">
 
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-wrap justify-center md:flex-row gap-2 md:gap-5">
 
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center"  onClick={() => {
                         setSelectedField("openingTime")
@@ -190,7 +190,7 @@ const RestaurantSettings = function () {
                 </div>
             </div>
 
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-wrap md:flex-row justify-center gap-2 md:gap-5">
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
                         setSelectedField("maxCapacity")
                         setInputValue(restaurantSettings.maxCapacity)
@@ -218,7 +218,7 @@ const RestaurantSettings = function () {
 
             </div>
 
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-wrap md:flex-row justify-center gap-2 md:gap-5">
                 <div className="bg-pink-900 p-3 rounded-lg cursor-pointer text-center" onClick={() => {
                         setSelectedField("reservationAdvanceDays")
                         setInputValue(restaurantSettings.reservationAdvanceDays)
