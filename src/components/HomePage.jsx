@@ -48,12 +48,25 @@ const HomePage = function () {
 
             </div>
 
-            <div className="flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
-                <h3>Find us on social media!</h3>
-                <div className="flex gap-5 py-2">
-                    <Link to={'https://www.instagram.com/'} target="_blank" className=" underline text-white hover:text-red-600"><img src="insta-logo.png" alt="" /></Link>
-                    <Link to={'https://www.facebook.com/'} target="_blank" className=" underline text-white hover:text-red-600"><img src="fb-logo.png" alt="" /></Link>
-                    <Link to={'/https://x.com/'} target="_blank" className=" underline text-white hover:text-red-600"><img src="x-logo.png" alt="" /></Link>
+            <div className="flex flex-row items-center justify-center p-5 text-black dark:text-white bg-white dark:bg-black">
+                {/* <div className="flex flex-col items-center">
+                    <h3>Dirección</h3>
+                    <div className="flex flex-row">
+                        <p>
+                            Carrer de provincia 23, 08023, Barcelona.
+                        </p> 
+                        <Link to={'https://www.google.com/maps'} target="_blank" className=" inline underline text-white hover:text-red-600"><img src="map-icon.png" alt="" /></Link>
+
+                    </div>
+                </div> */}
+
+                <div className="flex flex-col items-center">
+                    <h3>Find us on social media!</h3>
+                    <div className="flex gap-5 py-2">
+                        <Link to={'https://www.instagram.com/'} target="_blank" className=" underline text-white hover:text-red-600"><img src="insta-logo.png" alt="" /></Link>
+                        <Link to={'https://www.facebook.com/'} target="_blank" className=" underline text-white hover:text-red-600"><img src="fb-logo.png" alt="" /></Link>
+                        <Link to={'/https://x.com/'} target="_blank" className=" underline text-white hover:text-red-600"><img src="x-logo.png" alt="" /></Link>
+                    </div>
                 </div>
             </div>
 
