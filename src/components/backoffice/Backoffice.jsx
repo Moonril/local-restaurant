@@ -3,7 +3,7 @@ import Tabs from "./tabs/Tabs"
 
 const Backoffice = function () {
     return (
-        <section className="min-h-screen flex flex-col items-center  text-black dark:text-white bg-white dark:bg-black">
+        <section className="min-h-screen flex flex-col items-center  text-white bg-black">
                 {/* Main part - restaurant settings */}
             <div className="md:p-5">
                 <div className="flex flex-col items-center">

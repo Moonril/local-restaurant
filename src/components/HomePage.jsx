@@ -29,7 +29,7 @@ const HomePage = function () {
             {/* <Navbar /> */}
 
             {/* big container */}
-            <div className="min-h-screen flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
+            <div className="min-h-screen flex flex-col items-center p-5 text-white bg-black">
                 {/* title */}
                 <h1 className="py-10 text-4xl md:text-6xl font-serif">RESTAURANTE</h1>
                 <img src="collage.png" alt="collage" className="hidden md:block" />
@@ -54,7 +54,7 @@ const HomePage = function () {
 
             {/* find us */}
 
-            <div className="flex flex-col items-center gap-8 p-6 text-black dark:text-white bg-white dark:bg-black">
+            <div className="flex flex-col items-center gap-8 p-6 text-white bg-black">
                 <h3 className="text-3xl text-shadow-md/20">Donde estamos</h3>
                 
                 <div className="flex flex-col md:flex-row m:w-xl">
@@ -67,7 +67,7 @@ const HomePage = function () {
 
             </div>
 
-            <div className="flex flex-row items-center justify-center p-5 text-black dark:text-white bg-white dark:bg-black">
+            <div className="flex flex-row items-center justify-center p-5 text-white bg-black">
                 {/* <div className="flex flex-col items-center">
                     <h3>Dirección</h3>
                     <div className="flex flex-row">

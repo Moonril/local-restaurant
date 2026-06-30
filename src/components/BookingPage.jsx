@@ -38,9 +38,9 @@ const BookingPage = function () {
 
 
     return (
-        <section className="min-h-screen flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
+        <section className="min-h-screen flex flex-col items-center p-5 text-white bg-black">
 
-            <div className="flex flex-col items-center p-5 text-black dark:text-white bg-white dark:bg-black">
+            <div className="flex flex-col items-center p-5 text-white bg-black">
                 {/* <h1 className="py-10 text-4xl md:text-6xl font-serif">RESTAURANTE</h1> */}
                 <img src="booking-banner.png" alt="collage" />
                 
