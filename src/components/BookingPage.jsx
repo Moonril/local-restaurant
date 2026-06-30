@@ -27,7 +27,7 @@ const BookingPage = function () {
             console.log("Error during saving: ", err)
             Swal.fire({
                 title: 'Error',
-                text: 'Controlla che la ricetta non esista già.',
+                text: '¡Vaya! La fecha seleccionada no está disponible (contacta conmigo para una demo de backend).',
                 icon: 'error',
                 confirmButtonText: 'Riprova',
             })
