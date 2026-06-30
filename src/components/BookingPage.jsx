@@ -29,7 +29,7 @@ const BookingPage = function () {
                 title: 'Error',
                 text: '¡Vaya! La fecha seleccionada no está disponible (contacta conmigo para una demo de backend).',
                 icon: 'error',
-                confirmButtonText: 'Riprova',
+                confirmButtonText: 'OK',
             })
             
         })

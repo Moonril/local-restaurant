@@ -2,6 +2,7 @@ import {  useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../auth/AuthContext";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const Login = function () {
@@ -35,10 +36,10 @@ const Login = function () {
         .catch((err) => {
             console.log("Errore nel login: ", err)
             Swal.fire({
-                title: 'Errore nella richiesta',
-                text: 'Qualcosa è andato storto durante login.',
+                title: 'Error 500',
+                text: 'El servidor no está disponible en este momento. Inténtalo más tarde.',
                 icon: 'error',
-                confirmButtonText: 'Riprova',
+                confirmButtonText: 'OK',
             })
         })
     }
