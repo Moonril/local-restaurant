@@ -127,12 +127,12 @@ const BookingTab = function () {
                             <th className="px-3 py-2"></th>
                             <th className="px-3 py-2">ID</th>
                             <th className="px-3 py-2">Creado</th>
-                            <th className="px-3 py-2">nombre</th>
+                            <th className="px-3 py-2">Nombre</th>
                             <th className="px-3 py-2">Cantidad de personas</th>
                             <th className="px-3 py-2">Dìa reservado</th>
-                            <th className="px-3 py-2">email</th>
+                            <th className="px-3 py-2">Email</th>
                             <th className="px-3 py-2">Preferencias</th>
-                            <th className="px-3 py-2">estado</th>
+                            <th className="px-3 py-2">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
