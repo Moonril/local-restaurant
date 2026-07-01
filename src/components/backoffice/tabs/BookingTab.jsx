@@ -85,6 +85,22 @@ const BookingTab = function () {
     }
 
 
+    /* patch for status only */
+
+    const patchBookingStatus = (id, status) => {
+        return axios.patch(
+            `http://localhost:8080/bookings/${id}/status`,
+            { status },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+    };
+
+
 
     useEffect(()=>{
             getBookings()
@@ -177,7 +193,38 @@ const BookingTab = function () {
                         </div>
                         <div>
                             <label className="block text-sm font-medium">Status</label>
-                            <select name="booking-status" id="booking-status" value={formData.bookingStatus} onChange={((e) => setFormData({ ...formData, bookingStatus:e.target.value}))}>
+                            <select name="booking-status" id="booking-status" value={formData.bookingStatus} 
+                            onChange={async (e) => {
+    const newStatus = e.target.value;
+
+    setFormData((prev) => ({
+      ...prev,
+      bookingStatus: newStatus,
+    }));
+
+    try {
+      await patchBookingStatus(selectedBooking.id, newStatus);
+
+      Swal.fire({
+        title: "Estado actualizado",
+        text: "El estado de la reserva ha sido actualizado",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+
+      getBookings();
+    } catch (error) {
+      console.error(error);
+
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo actualizar el estado",
+        icon: "error",
+      });
+    }
+  }}>
+                            
                                 <option value="PENDING" >Pending</option>
                                 <option value="CONFIRMED">Confirmed</option>
                                 <option value="CANCELLED">Cancelled</option>
