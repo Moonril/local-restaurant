@@ -66,8 +66,8 @@ const BookingTab = function () {
         .then((response) => {
             console.log("Prenotazione aggiornata:", response.data)
             Swal.fire({
-                        title: 'Agiornamento completato!',
-                        text: 'La tua prenotazione è stata aggiornata con successo!',
+                        title: 'Actualización completada!',
+                        text: 'Su reserva se ha actualizado correctamente!',
                         icon: 'success',
                         confirmButtonText: 'Ok',
                     })
@@ -76,10 +76,10 @@ const BookingTab = function () {
         .catch((error) => {
             console.error("Errore nella modifica:", error)
             Swal.fire({
-                    title: 'Errore nella richiesta',
-                    text: 'Riempi tutti i campi.',
+                    title: 'Error en la solicitud',
+                    text: 'Rellena todos los campos.',
                     icon: 'error',
-                    confirmButtonText: 'Riprova',
+                    confirmButtonText: 'Intentar otra vez',
             })
         })
     }
