@@ -7,15 +7,21 @@ const HomePage = function () {
 
     /* dates */
     const today = new Date()
-    
-    const startOfWeek = new Date(today)
-    const endOfWeek = new Date(today)
     const day = today.getDay()
-
+    
     // monday
+    const startOfWeek = new Date(today)
     startOfWeek.setDate(today.getDate() - ((day + 6) % 7))
+    
+    
     // sunday
+    const endOfWeek = new Date(startOfWeek)
     endOfWeek.setDate(startOfWeek.getDate() + 6)
+
+    
+
+
+
 
 
     const formatDate = (date) =>
